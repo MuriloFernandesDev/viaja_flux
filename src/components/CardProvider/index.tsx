@@ -3,7 +3,7 @@ import ReservaImg from '../../assets/images/reserva.png'
 
 const CardProvider = () => {
    return (
-      <div className="w-full h-auto flex flex-col gap-3 card shadow-lg items-center p-5">
+      <div className="w-full h-auto flex flex-col gap-3 card shadow-lg items-center p-5 transition-all duration-300 hover:scale-105">
          <Image
             src={ReservaImg}
             width={150}

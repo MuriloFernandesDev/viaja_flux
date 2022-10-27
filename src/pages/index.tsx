@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
-import NavBar from '../components/NavBar'
 import VideoImg from '../assets/images/video.png'
 import MidiaImg from '../assets/images/bannerMidia.png'
 import { useEffect, useRef, useState } from 'react'
@@ -11,13 +10,17 @@ import PeopleImg from '../assets/images/people.png'
 import AccordionComponent from '../components/AccordionComponent'
 import GlobalImg from '../assets/images/globalimg.png'
 import Footer from '../components/Footer'
+import dynamic from 'next/dynamic'
+const NavBar = dynamic(() => import('../components/NavBar'), { ssr: false })
 
 const Home: NextPage = () => {
    const [navbar, setNavbar] = useState(false)
    const [isContainerOne, setIsContainerOne] = useState(false)
    const [isContainerDiff, setIsContainerDiff] = useState(false)
+   const [isContainerFornec, SetIsContainerFornec] = useState(false)
    const boxRef = useRef<HTMLDivElement | null>(null)
    const boxRefDiff = useRef<HTMLDivElement | null>(null)
+   const boxRefFornec = useRef<HTMLDivElement | null>(null)
 
    const changeBackground = () => {
       const posX = boxRef.current?.getBoundingClientRect().height
@@ -39,6 +42,16 @@ const Home: NextPage = () => {
       }
    }
 
+   const changeContainerFornec = async () => {
+      const postHeight = boxRefFornec.current?.offsetTop
+      if (postHeight !== undefined) {
+         if (postHeight < window.scrollY) {
+            await new Promise((resolve) => setTimeout(resolve, 500))
+            SetIsContainerFornec(true)
+         }
+      }
+   }
+
    useEffect(() => {
       const EffectContainerOne = async () => {
          await new Promise((resolve) => setTimeout(resolve, 200))
@@ -50,38 +63,13 @@ const Home: NextPage = () => {
    useEffect(() => {
       window.addEventListener('scroll', changeBackground)
       window.addEventListener('scroll', changeContainerDiff)
+      window.addEventListener('scroll', changeContainerFornec)
    }, [])
 
    return (
       <>
          <NavBar onColor={navbar} />
          <div className="bg-[url(../../src/assets/images/banner1.png)] bg-no-repeat bg-center bg-cover max-w-[1600px] mx-auto">
-            {/* <div
-               className={
-                  'flex items-center w-full h-screen max-w-7xl mx-auto transition-all duration-500 ' +
-                  (isContainerOne ? 'ml-0' : '-ml-[1500px]')
-               }
-            >
-               <div className="flex flex-col px-4 md:items-start md:text-start items-center text-center md:w-1/2 gap-6">
-                  <div ref={boxRef}>
-                     <h1 className="text-xl md:text-5xl text-primary">
-                        A plataforma completa para criar do zero a sua
-                     </h1>
-                     <h2 className="text-xl md:text-5xl text-[#DAB06F]">
-                        Agência home office
-                     </h2>
-                  </div>
-                  <span className="text-base md:text-lg text-[#555555] normal-case">
-                     A solução completa para empreender no formato home office e
-                     conseguir escala de faturamento com a liberdade de um
-                     negócio online.
-                  </span>
-                  <button className="btn btn-primary w-40 text-base-100">
-                     Criar agência
-                  </button>
-               </div>
-            </div> */}
-
             <div
                className={
                   'flex items-center h-screen justify-between p-4 max-w-7xl mx-auto px-4 py-10 md:py-28 '
@@ -196,14 +184,19 @@ const Home: NextPage = () => {
                </div>
             </div>
             <div className="max-w-7xl mx-auto px-4">
-               <div className="max-w-7xl mx-auto mt-10 px-4">
+               <div ref={boxRefFornec} className="max-w-7xl mx-auto mt-10 px-4">
                   <Image src={MidiaImg} quality={100} alt="midia" />
                </div>
                <h1 className="text-2xl md:text-4xl text-center max-w-3xl mx-auto mt-24 text-primary">
                   Tenha acesso aos melhores fornecedores com taxas muito abaixo
                   do mercado!
                </h1>
-               <div className="grid md:grid-cols-4 grid-cols-2 gap-3 text-primary py-10 md:py-20">
+               <div
+                  className={
+                     'grid md:grid-cols-4 grid-cols-2 gap-3 text-primary py-10 md:py-20 transition-all duration-1000 ' +
+                     (isContainerFornec ? 'opacity-100' : 'opacity-0')
+                  }
+               >
                   <CardProvider />
                   <CardProvider />
                   <CardProvider />
