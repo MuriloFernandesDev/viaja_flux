@@ -56,9 +56,9 @@ const Home: NextPage = () => {
       <>
          <NavBar onColor={navbar} />
          <div className="bg-[url(../../src/assets/images/banner1.png)] bg-no-repeat bg-center bg-cover max-w-[1600px] mx-auto">
-            <div
+            {/* <div
                className={
-                  'flex justify-start items-center w-full h-screen max-w-7xl mx-auto transition-all duration-500 ' +
+                  'flex items-center w-full h-screen max-w-7xl mx-auto transition-all duration-500 ' +
                   (isContainerOne ? 'ml-0' : '-ml-[1500px]')
                }
             >
@@ -77,6 +77,51 @@ const Home: NextPage = () => {
                      negócio online.
                   </span>
                   <button className="btn btn-primary w-40 text-base-100">
+                     Criar agência
+                  </button>
+               </div>
+            </div> */}
+
+            <div
+               className={
+                  'flex items-center h-screen justify-between p-4 max-w-7xl mx-auto px-4 py-10 md:py-28 '
+               }
+            >
+               <div className="flex flex-col gap-6">
+                  <div ref={boxRef}>
+                     <h1
+                        className={
+                           'text-xl md:text-5xl text-primary transition-all duration-300 max-w-3xl ' +
+                           (isContainerOne ? 'ml-0' : '-ml-[1500px]')
+                        }
+                     >
+                        A plataforma completa para criar do zero a sua
+                     </h1>
+                     <h2
+                        className={
+                           'text-xl md:text-5xl text-[#DAB06F] transition-all duration-500 ' +
+                           (isContainerOne ? 'ml-0' : '-ml-[1500px]')
+                        }
+                     >
+                        Agência home office
+                     </h2>
+                  </div>
+                  <span
+                     className={
+                        'text-base md:text-lg text-[#555555] normal-case transition-all duration-700 max-w-3xl ' +
+                        (isContainerOne ? 'ml-0' : '-ml-[1500px]')
+                     }
+                  >
+                     A solução completa para empreender no formato home office e
+                     conseguir escala de faturamento com a liberdade de um
+                     negócio online.
+                  </span>
+                  <button
+                     className={
+                        'btn btn-primary w-40 text-base-100 transition-all duration-1000 ' +
+                        (isContainerOne ? 'ml-0' : '-ml-[1500px]')
+                     }
+                  >
                      Criar agência
                   </button>
                </div>

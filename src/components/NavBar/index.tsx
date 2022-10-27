@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import Drawer from 'react-modern-drawer'
 import 'react-modern-drawer/dist/index.css'
+import Link from 'next/link'
 
 const NavBar = ({ onColor }: { onColor: boolean }) => {
    const [openDrawer, setOpenDrawer] = useState(false)
@@ -49,9 +50,11 @@ const NavBar = ({ onColor }: { onColor: boolean }) => {
                   </ul>
                </div>
                <div className="navbar-end flex gap-3">
-                  <button className="btn btn-primary normal-case bg-transparent text-primary hidden md:inline-flex">
-                     Entrar
-                  </button>
+                  <Link href="https://e62c-45-227-251-74.sa.ngrok.io/login">
+                     <button className="btn btn-primary normal-case bg-transparent text-primary hidden md:inline-flex">
+                        Entrar
+                     </button>
+                  </Link>
                   <button className="btn btn-primary normal-case text-base-100 hidden md:inline-flex">
                      Criar agência
                   </button>
