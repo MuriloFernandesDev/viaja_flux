@@ -32,21 +32,38 @@ const NavBar = ({ onColor }: { onColor: boolean }) => {
                <div className="navbar-center hidden lg:flex">
                   <ul className="menu menu-horizontal p-0">
                      <li>
-                        <a href="#como-funciona">Como funciona</a>
+                        <a
+                           className="active:text-warning"
+                           href="#como-funciona"
+                        >
+                           Como funciona
+                        </a>
                      </li>
                      <li>
-                        <a href="#diferencial">Diferenciais</a>
-                     </li>
-
-                     <li>
-                        <a>Contato</a>
+                        <a className="active:text-warning" href="#diferencial">
+                           Diferenciais
+                        </a>
                      </li>
                      <li>
-                        <a>Vender milhas</a>
+                        <a
+                           className="active:text-warning"
+                           href="#vender-milhas"
+                        >
+                           Vender milhas
+                        </a>
                      </li>
                      <li>
-                        <a>Blog</a>
+                        <a
+                           className="active:text-warning"
+                           target={'_blank'}
+                           href="https://viajamilhas.com.br"
+                        >
+                           Blog
+                        </a>
                      </li>
+                     {/* <li>
+                        <a className="active:text-warning">Contato</a>
+                     </li> */}
                   </ul>
                </div>
                <div className="navbar-end flex gap-3">
@@ -85,21 +102,32 @@ const NavBar = ({ onColor }: { onColor: boolean }) => {
          >
             <ul className="menu w-full px-4">
                <li>
-                  <a>Como funciona</a>
+                  <a className="active:text-warning" href="#como-funciona">
+                     Como funciona
+                  </a>
                </li>
                <li>
-                  <a>Diferenciais</a>
-               </li>
-
-               <li>
-                  <a>Contato</a>
+                  <a className="active:text-warning" href="#diferencial">
+                     Diferenciais
+                  </a>
                </li>
                <li>
-                  <a>Vender milhas</a>
+                  <a className="active:text-warning" href="#vender-milhas">
+                     Vender milhas
+                  </a>
                </li>
                <li>
-                  <a>Blog</a>
+                  <a
+                     className="active:text-warning"
+                     target={'_blank'}
+                     href="https://viajamilhas.com.br"
+                  >
+                     Blog
+                  </a>
                </li>
+               {/* <li>
+                  <a className="active:text-warning">Contato</a>
+               </li> */}
                <button className="btn btn-primary normal-case bg-transparent text-primary">
                   Entrar
                </button>

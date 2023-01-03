@@ -1,25 +1,27 @@
-import { faCircle, faDollarSign } from '@fortawesome/free-solid-svg-icons'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const CardMoney = ({
    position,
    title,
-   title2,
+   icon,
 }: {
    position?: string
    title: string
-   title2: string
+   icon: IconProp
 }) => {
    return (
-      <div className={'card bg-base-100 shadow-lg max-w-lg ' + position}>
-         <div className="card-body flex-row items-center">
-            <div className="flex w-20 h-20 items-center justify-center text-primary bg-[#DAB06F] rounded-2xl">
-               <FontAwesomeIcon icon={faDollarSign} className="w-16 h-16" />
-            </div>
-            <div className="flex flex-col">
-               <span className="text-2xl">{title}</span>
+      <div
+         className={
+            'card bg-base-100 border transition-all duration-300 hover:scale-105 ' +
+            position
+         }
+      >
+         <div className="card-body flex-col text-center gap-6 items-center">
+            <FontAwesomeIcon icon={icon} className="w-16 h-16" />
 
-               <span className="text-2xl">{title2}</span>
+            <div className="flex flex-col">
+               <span className="text-2xl ">{title}</span>
             </div>
          </div>
       </div>

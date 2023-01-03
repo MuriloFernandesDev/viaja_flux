@@ -17,6 +17,7 @@ module.exports = {
                primary: '#000036',
                'primary-content': '#2B2B2B',
                'base-200': '#F3F3F3',
+               '--rounded-btn': '0',
             },
          },
       ],

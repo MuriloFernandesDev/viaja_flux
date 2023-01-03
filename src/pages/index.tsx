@@ -11,6 +11,13 @@ import AccordionComponent from '../components/AccordionComponent'
 import GlobalImg from '../assets/images/globalimg.png'
 import Footer from '../components/Footer'
 import dynamic from 'next/dynamic'
+import {
+   faBullhorn,
+   faDollar,
+   faGraduationCap,
+   faPlaneDeparture,
+   faWallet,
+} from '@fortawesome/free-solid-svg-icons'
 const NavBar = dynamic(() => import('../components/NavBar'), { ssr: false })
 
 const Home: NextPage = () => {
@@ -23,9 +30,9 @@ const Home: NextPage = () => {
    const boxRefFornec = useRef<HTMLDivElement | null>(null)
 
    const changeBackground = () => {
-      const posX = boxRef.current?.getBoundingClientRect().height
+      const posX = boxRef.current?.offsetTop
       if (posX !== undefined) {
-         if (window.scrollY >= posX - 20) {
+         if (window.scrollY >= posX - 100) {
             setNavbar(true)
          } else {
             setNavbar(false)
@@ -34,9 +41,9 @@ const Home: NextPage = () => {
    }
 
    const changeContainerDiff = async () => {
-      const postHeight = boxRefDiff.current?.getBoundingClientRect().height
+      const postHeight = boxRefDiff.current?.offsetTop
       if (postHeight !== undefined) {
-         if (window.scrollY > postHeight - postHeight / 2) {
+         if (window.scrollY >= postHeight - 100) {
             setIsContainerDiff(true)
          }
       }
@@ -45,8 +52,7 @@ const Home: NextPage = () => {
    const changeContainerFornec = async () => {
       const postHeight = boxRefFornec.current?.offsetTop
       if (postHeight !== undefined) {
-         if (postHeight < window.scrollY) {
-            await new Promise((resolve) => setTimeout(resolve, 500))
+         if (window.scrollY >= postHeight + 100) {
             SetIsContainerFornec(true)
          }
       }
@@ -75,39 +81,41 @@ const Home: NextPage = () => {
                   'flex items-center md:h-screen justify-between p-4 max-w-7xl mx-auto px-4 py-24 md:py-28 '
                }
             >
-               <div className="flex flex-col gap-6">
-                  <div ref={boxRef} className="">
+               <div ref={boxRef} className="flex flex-col gap-12 max-w-xl">
+                  <div>
                      <h1
                         className={
-                           'text-xl md:text-5xl text-primary transition-all duration-300 max-w-3xl ' +
+                           'font-semibold text-primary transition-all duration-300 title ' +
                            (isContainerOne ? 'ml-0' : '-ml-[1500px]')
                         }
                      >
-                        A plataforma para escalar suas vendas e aumentar seus
-                        lucros no
-                        <span
-                           className={
-                              'text-xl md:text-5xl text-[#DAB06F] transition-all duration-500 ' +
-                              (isContainerOne ? 'ml-0' : '-ml-[1500px]')
-                           }
-                        >
-                           <br className="hidden md:block" /> seu negócio
-                           digital no ramo do turismo.
+                        A plataforma para escalar suas vendas e{' '}
+                        <span className="text-[#DAB06F]">
+                           aumentar seus lucros.
                         </span>
                      </h1>
+                     {/* <p
+                        className={
+                           'text-[#DAB06F] transition-all duration-500 subtitle ' +
+                           (isContainerOne ? 'ml-0' : '-ml-[1500px]')
+                        }
+                     >
+                        no seu negócio digital no ramo do turismo.
+                     </p> */}
                   </div>
-                  <span
+
+                  <p
                      className={
-                        'text-base md:text-lg text-[#555555] normal-case transition-all duration-700 max-w-3xl ' +
+                        'text-base md:text-xl text-[#555555] normal-case transition-all duration-700 max-w-3xl ' +
                         (isContainerOne ? 'ml-0' : '-ml-[1500px]')
                      }
                   >
                      A única com modelo de programa de fidelidade próprio que
                      você lucra sem vender passagens e pacotes.
-                  </span>
+                  </p>
                   <button
                      className={
-                        'btn btn-primary w-40 text-base-100 transition-all duration-1000 ' +
+                        'btn btn-primary btn-lg w-fit normal-case text-base-100 transition-all duration-1000 ' +
                         (isContainerOne ? 'ml-0' : '-ml-[1500px]')
                      }
                   >
@@ -120,7 +128,7 @@ const Home: NextPage = () => {
             id="como-funciona"
             className="flex py-14 flex-col text-center justify-center items-center bg-base-100"
          >
-            <h1 className="text-4xl text-primary-content mb-2">
+            <h1 className="text-4xl text-primary font-semibold mb-2">
                Conheça o Viaja Flux
             </h1>
             <span className="text-[#808080]">
@@ -141,71 +149,63 @@ const Home: NextPage = () => {
          </div>
 
          <div ref={boxRefDiff} id="diferencial" className="bg-base-200">
-            <div className="w-full flex flex-col md:flex-row justify-between p-4 max-w-7xl mx-auto px-4 py-10 md:py-28">
+            <div className="w-full flex flex-col gap-20 max-w-7xl mx-auto px-4 py-10 md:py-20">
+               <div className="flex justify-center max-w-xl text-center mx-auto gap-4 w-full">
+                  <h3 className="text-4xl text-primary font-semibold">
+                     Os melhores preços e acordos comerciais do Brasil
+                  </h3>
+               </div>
                <div
                   className={
-                     'flex flex-col justify-center col-span-1 md:w-1/3 transition-all duration-500 ' +
-                     (isContainerDiff ? 'ml-0' : '-ml-[1600px]')
+                     'grid lg:grid-cols-5 gap-6 transition-all duration-500 ' +
+                     (!isContainerDiff ? 'opacity-0' : 'opacity-100')
                   }
                >
-                  <h1 className="text-4xl text-primary">
-                     Conheça nossos diferenciais
-                  </h1>
-                  <span className="text-primary-content text-xl">
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                     Nisl ut pharetra sit in sit fermentum. Facilisi cras enim,
-                     massa lectus. Bibendum eget at cursus.
-                  </span>
-               </div>
-               <div className="flex flex-col gap-6 items-center col-span-3 md:w-2/3">
-                  <div
-                     className={
-                        'flex w-full justify-end md:mr-10 transition-all duration-500 ' +
-                        (isContainerDiff ? 'ml-0' : '-ml-[3400px]')
-                     }
-                  >
+                  <div className={'flex w-full'}>
                      <CardMoney
-                        title="Os melhores preços e acordos comerciais do brasil."
-                        title2="Maior margem."
-                     />
-                  </div>
-                  <div
-                     className={
-                        'flex w-full justify-center md:ml-10 transition-all duration-500 ' +
-                        (isContainerDiff ? 'ml-0' : 'mr-[3400px]')
-                     }
-                  >
-                     <CardMoney
-                        position="left-0"
                         title="Passagens em Milhas."
-                        title2="Marketing Digital para Agências."
+                        icon={faPlaneDeparture}
                      />
                   </div>
-                  <div
-                     className={
-                        'flex w-full justify-start md:justify-end md:ml-10 transition-all duration-500 ' +
-                        (isContainerDiff ? 'ml-0' : 'mr-[3400px]')
-                     }
-                  >
+                  <div className={'flex w-full'}>
                      <CardMoney
-                        position="right-0"
                         title="Programa de Fidelidade Próprio."
-                        title2="Formação em Turismo, Milhas e Vendas."
+                        icon={faWallet}
+                     />
+                  </div>
+                  <div className={'flex w-full'}>
+                     <CardMoney
+                        title="Maior margem de lucro."
+                        icon={faDollar}
+                     />
+                  </div>
+                  <div className={'flex w-full'}>
+                     <CardMoney
+                        title="Marketing Digital para Agências."
+                        icon={faBullhorn}
+                     />
+                  </div>
+                  <div className={'flex w-full'}>
+                     <CardMoney
+                        title="Formação em Turismo, Milhas e Vendas."
+                        icon={faGraduationCap}
                      />
                   </div>
                </div>
             </div>
             <div className="max-w-7xl mx-auto px-4">
                <div ref={boxRefFornec} className="max-w-7xl mx-auto mt-10 px-4">
-                  <Image src={MidiaImg} quality={100} alt="midia" />
+                  <a href="https://viajamilhas.com.br" target={'_blank'}>
+                     <Image src={MidiaImg} quality={100} alt="midia" />
+                  </a>
                </div>
-               <h1 className="text-2xl md:text-4xl text-center max-w-3xl mx-auto mt-24 text-primary">
+               <h1 className="text-2xl md:text-4xl text-center max-w-3xl mx-auto font-semibold mt-24 text-primary">
                   Tenha acesso aos melhores fornecedores com taxas muito abaixo
                   do mercado!
                </h1>
                <div
                   className={
-                     'grid md:grid-cols-4 grid-cols-2 gap-3 text-primary py-10 md:py-20 transition-all duration-1000 ' +
+                     'grid md:grid-cols-4 grid-cols-2 gap-3 text-primary py-10 md:py-20 transition-all duration-500 ' +
                      (isContainerFornec ? 'opacity-100' : 'opacity-0')
                   }
                >
@@ -219,7 +219,7 @@ const Home: NextPage = () => {
                   <CardProvider />
                </div>
             </div>
-            <div className="bg-[url(../../src/assets/images/bannerdivider.png)] bg-no-repeat bg-auto bg-top">
+            {/* <div className="bg-[url(../../src/assets/images/bannerdivider.png)] bg-no-repeat bg-auto bg-top">
                <div className="max-w-7xl mx-auto px-4 py-10 md:py-32">
                   <div className="flex flex-col md:flex-row justify-between items-center">
                      <div className="flex flex-col items-center text-center md:text-start md:items-start gap-8">
@@ -246,20 +246,20 @@ const Home: NextPage = () => {
                      </div>
                   </div>
                </div>
-            </div>
+            </div> */}
          </div>
-         <div className="w-full bg-primary">
+         <div className="w-full bg-primary" id="vender-milhas">
             <div className="flex flex-col md:flex-row max-w-7xl w-full mx-auto justify-between">
                <div className="flex flex-col md:w-1/2 items-center md:items-start text-center mt-10 md:mt-0 md:text-start px-4 justify-center gap-7">
-                  <h1 className="text-[#DAB06F] text-4xl">
+                  <h1 className="text-[#DAB06F] text-4xl font-semibold">
                      Ganhe dinheiro vendendo suas milhas com segurança
                   </h1>
                   <span className="text-white text-2xl">
-                     Nós intermediamos a negociação de suas milhas com
-                     segurança, rapidez e tranquilidade em todo processo.
+                     Temos um grupo exclusivo para os membros negociarem suas
+                     milhas com rapidez e tranquilidade.
                   </span>
-                  <button className="btn btn-primary bg-[#DAB06F] text-primary">
-                     Anunciar milhas
+                  <button className="btn btn-primary normal-case bg-[#DAB06F] text-primary">
+                     Me cadastrar
                   </button>
                </div>
                <div className="md:w-[30%] w-1/2 mx-auto md:mx-0">
@@ -269,8 +269,8 @@ const Home: NextPage = () => {
          </div>
          <div className="w-full bg-base-100">
             <div className="max-w-7xl px-4 mx-auto flex flex-col py-16">
-               <h1 className="text-4xl">Dúvidas frequentes</h1>
-               <AccordionComponent />
+               {/* <h1 className="text-4xl">Dúvidas frequentes</h1>
+               <AccordionComponent /> */}
                <div className="w-full relative">
                   <Image
                      src={GlobalImg}
