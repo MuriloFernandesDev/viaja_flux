@@ -32,10 +32,10 @@ const NavBar = ({ onColor }: { onColor: boolean }) => {
                <div className="navbar-center hidden lg:flex">
                   <ul className="menu menu-horizontal p-0">
                      <li>
-                        <a href="#meet">Como funciona</a>
+                        <a href="#como-funciona">Como funciona</a>
                      </li>
                      <li>
-                        <a href="#differential">Diferenciais</a>
+                        <a href="#diferencial">Diferenciais</a>
                      </li>
 
                      <li>

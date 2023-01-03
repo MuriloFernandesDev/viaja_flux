@@ -117,7 +117,7 @@ const Home: NextPage = () => {
             </div>
          </div>
          <div
-            id="meet"
+            id="como-funciona"
             className="flex py-14 flex-col text-center justify-center items-center bg-base-100"
          >
             <h1 className="text-4xl text-primary-content mb-2">
@@ -140,7 +140,7 @@ const Home: NextPage = () => {
             </button>
          </div>
 
-         <div ref={boxRefDiff} id="differential" className="bg-base-200">
+         <div ref={boxRefDiff} id="diferencial" className="bg-base-200">
             <div className="w-full flex flex-col md:flex-row justify-between p-4 max-w-7xl mx-auto px-4 py-10 md:py-28">
                <div
                   className={
