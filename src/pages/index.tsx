@@ -69,30 +69,32 @@ const Home: NextPage = () => {
    return (
       <>
          <NavBar onColor={navbar} />
-         <div className="bg-[url(../../src/assets/images/banner1.png)] bg-no-repeat bg-center bg-cover max-w-[1600px] mx-auto">
+         <div className="bg-[url(../../src/assets/images/banner1.png)] bg-no-repeat bg-center bg-cover md:max-w-[1600px] mx-auto">
             <div
                className={
-                  'flex items-center h-screen justify-between p-4 max-w-7xl mx-auto px-4 py-10 md:py-28 '
+                  'flex items-center md:h-screen justify-between p-4 max-w-7xl mx-auto px-4 py-24 md:py-28 '
                }
             >
                <div className="flex flex-col gap-6">
-                  <div ref={boxRef}>
+                  <div ref={boxRef} className="">
                      <h1
                         className={
                            'text-xl md:text-5xl text-primary transition-all duration-300 max-w-3xl ' +
                            (isContainerOne ? 'ml-0' : '-ml-[1500px]')
                         }
                      >
-                        A plataforma completa para criar do zero a sua
+                        A plataforma para escalar suas vendas e aumentar seus
+                        lucros no
+                        <span
+                           className={
+                              'text-xl md:text-5xl text-[#DAB06F] transition-all duration-500 ' +
+                              (isContainerOne ? 'ml-0' : '-ml-[1500px]')
+                           }
+                        >
+                           <br className="hidden md:block" /> seu negócio
+                           digital no ramo do turismo.
+                        </span>
                      </h1>
-                     <h2
-                        className={
-                           'text-xl md:text-5xl text-[#DAB06F] transition-all duration-500 ' +
-                           (isContainerOne ? 'ml-0' : '-ml-[1500px]')
-                        }
-                     >
-                        Agência home office
-                     </h2>
                   </div>
                   <span
                      className={
@@ -100,9 +102,8 @@ const Home: NextPage = () => {
                         (isContainerOne ? 'ml-0' : '-ml-[1500px]')
                      }
                   >
-                     A solução completa para empreender no formato home office e
-                     conseguir escala de faturamento com a liberdade de um
-                     negócio online.
+                     A única com modelo de programa de fidelidade próprio que
+                     você lucra sem vender passagens e pacotes.
                   </span>
                   <button
                      className={
@@ -163,7 +164,10 @@ const Home: NextPage = () => {
                         (isContainerDiff ? 'ml-0' : '-ml-[3400px]')
                      }
                   >
-                     <CardMoney />
+                     <CardMoney
+                        title="Os melhores preços e acordos comerciais do brasil."
+                        title2="Maior margem."
+                     />
                   </div>
                   <div
                      className={
@@ -171,7 +175,11 @@ const Home: NextPage = () => {
                         (isContainerDiff ? 'ml-0' : 'mr-[3400px]')
                      }
                   >
-                     <CardMoney position="left-0" />
+                     <CardMoney
+                        position="left-0"
+                        title="Passagens em Milhas."
+                        title2="Marketing Digital para Agências."
+                     />
                   </div>
                   <div
                      className={
@@ -179,7 +187,11 @@ const Home: NextPage = () => {
                         (isContainerDiff ? 'ml-0' : 'mr-[3400px]')
                      }
                   >
-                     <CardMoney position="right-0" />
+                     <CardMoney
+                        position="right-0"
+                        title="Programa de Fidelidade Próprio."
+                        title2="Formação em Turismo, Milhas e Vendas."
+                     />
                   </div>
                </div>
             </div>
