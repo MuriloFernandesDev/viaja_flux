@@ -68,10 +68,42 @@ const Footer = () => {
                <div className="flex flex-col gap-3 items-end">
                   <h1 className="text-base">Onde nos encontrar:</h1>
                   <div className="flex gap-2">
-                     <FontAwesomeIcon icon={faInstagram} className="w-6 h-6" />
-                     <FontAwesomeIcon icon={faFacebook} className="w-6 h-6" />
-                     <FontAwesomeIcon icon={faYoutube} className="w-6 h-6" />
-                     <FontAwesomeIcon icon={faLinkedin} className="w-6 h-6" />
+                     <a
+                        href="https://www.instagram.com/luiz.gregatti/"
+                        target={'_blank'}
+                     >
+                        <FontAwesomeIcon
+                           icon={faInstagram}
+                           className="w-6 h-6"
+                        />
+                     </a>
+
+                     <a
+                        href="https://www.facebook.com/luizgregattii"
+                        target={'_blank'}
+                     >
+                        <FontAwesomeIcon
+                           icon={faFacebook}
+                           className="w-6 h-6"
+                        />
+                     </a>
+
+                     <a
+                        href="https://www.youtube.com/channel/UCjHalcj2qBPb3Nu1u3w0R2A"
+                        target={'_blank'}
+                     >
+                        <FontAwesomeIcon icon={faYoutube} className="w-6 h-6" />
+                     </a>
+                     <a
+                        href="https://www.linkedin.com/in/luiz-henrique-gregatti-5b18b0215/"
+                        target={'_blank'}
+                     >
+                        <FontAwesomeIcon
+                           icon={faLinkedin}
+                           className="w-6 h-6"
+                        />
+                     </a>
+
                      <a
                         className="flex items-center gap-1"
                         href="mailto:contato@viajaflux.com.br"

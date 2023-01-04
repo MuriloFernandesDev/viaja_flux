@@ -119,7 +119,9 @@ const Home: NextPage = () => {
                         (isContainerOne ? 'ml-0' : '-ml-[1500px]')
                      }
                   >
-                     Criar agência
+                     <a href={`${process.env.NEXT_PUBLIC_SIGN_IN}/register`}>
+                        Criar agência
+                     </a>
                   </button>
                </div>
             </div>
@@ -135,13 +137,30 @@ const Home: NextPage = () => {
                Entenda melhor a solução completa que temos a oferecer!
             </span>
             <div className="w-full flex justify-center mx-auto mt-10 px-4">
-               <Image
+               {/* <Image
                   src={VideoImg}
                   quality={100}
                   width={950}
                   height={520}
                   alt="banner"
-               />
+               /> */}
+               <div className="max-w-4xl w-full flex mx-auto">
+                  <div className="w-full flex justify-center">
+                     <div className="w-full h-auto relative flex">
+                        <div className="relative w-full h-full pb-[56.25%]">
+                           <iframe
+                              className="absolute w-full h-full flex border-none rounded-3xl shadow-black/40 shadow-md m-0"
+                              placeholder="blur"
+                              loading="lazy"
+                              src={'https://www.youtube.com/embed/dWSNPFb1inY'}
+                              title="YouTube video player"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                           ></iframe>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
             <button className="btn btn-primary mt-10 text-base-100 normal-case w-64">
                Falar com um consultor
@@ -259,7 +278,9 @@ const Home: NextPage = () => {
                      milhas com rapidez e tranquilidade.
                   </span>
                   <button className="btn btn-primary normal-case bg-[#DAB06F] text-primary">
-                     Me cadastrar
+                     <a href={`${process.env.NEXT_PUBLIC_SIGN_IN}/register`}>
+                        Me cadastrar
+                     </a>
                   </button>
                </div>
                <div className="md:w-[30%] w-1/2 mx-auto md:mx-0">
