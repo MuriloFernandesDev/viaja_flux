@@ -69,13 +69,13 @@ const NavBar = ({ onColor }: { onColor: boolean }) => {
                <div className="navbar-end flex gap-3">
                   <Link href="https://e62c-45-227-251-74.sa.ngrok.io/login">
                      <button className="btn btn-primary normal-case bg-transparent text-primary hidden md:inline-flex">
-                        <a href={`${process.env.NEXT_PUBLIC_SIGN_IN}/login`}>
+                        <a href={`${process.env.NEXT_PUBLIC_URL}/login`}>
                            Entrar
                         </a>
                      </button>
                   </Link>
                   <button className="btn btn-primary normal-case text-base-100 hidden md:inline-flex">
-                     <a href={`${process.env.NEXT_PUBLIC_SIGN_IN}/register`}>
+                     <a href={`${process.env.NEXT_PUBLIC_URL}/register`}>
                         Criar agência
                      </a>
                   </button>

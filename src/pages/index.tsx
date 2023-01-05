@@ -119,7 +119,7 @@ const Home: NextPage = () => {
                         (isContainerOne ? 'ml-0' : '-ml-[1500px]')
                      }
                   >
-                     <a href={`${process.env.NEXT_PUBLIC_SIGN_IN}/register`}>
+                     <a href={`${process.env.NEXT_PUBLIC_URL}/register`}>
                         Criar agência
                      </a>
                   </button>
@@ -278,7 +278,7 @@ const Home: NextPage = () => {
                      milhas com rapidez e tranquilidade.
                   </span>
                   <button className="btn btn-primary normal-case bg-[#DAB06F] text-primary">
-                     <a href={`${process.env.NEXT_PUBLIC_SIGN_IN}/register`}>
+                     <a href={`${process.env.NEXT_PUBLIC_URL}/register`}>
                         Me cadastrar
                      </a>
                   </button>
