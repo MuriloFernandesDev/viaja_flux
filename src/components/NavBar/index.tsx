@@ -67,13 +67,9 @@ const NavBar = ({ onColor }: { onColor: boolean }) => {
                   </ul>
                </div>
                <div className="navbar-end flex gap-3">
-                  <Link href="https://e62c-45-227-251-74.sa.ngrok.io/login">
-                     <button className="btn btn-primary normal-case bg-transparent text-primary hidden md:inline-flex">
-                        <a href={`${process.env.NEXT_PUBLIC_URL}/login`}>
-                           Entrar
-                        </a>
-                     </button>
-                  </Link>
+                  <button className="btn btn-primary normal-case bg-transparent text-primary hidden md:inline-flex">
+                     <a href={`${process.env.NEXT_PUBLIC_URL}/login`}>Entrar</a>
+                  </button>
                   <button className="btn btn-primary normal-case text-base-100 hidden md:inline-flex">
                      <a href={`${process.env.NEXT_PUBLIC_URL}/register`}>
                         Criar agência
@@ -104,7 +100,7 @@ const NavBar = ({ onColor }: { onColor: boolean }) => {
             duration={400}
             className="w-2/3"
          >
-            <ul className="menu w-full px-4">
+            <ul className="menu gap-3 w-full px-4">
                <li>
                   <a className="active:text-warning" href="#como-funciona">
                      Como funciona

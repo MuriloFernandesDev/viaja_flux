@@ -106,7 +106,7 @@ const Footer = () => {
 
                      <a
                         className="flex items-center gap-1"
-                        href="mailto:contato@viajaflux.com.br"
+                        href="mailto:suporte@viajaflux.com.br"
                      >
                         <FontAwesomeIcon
                            icon={faEnvelope}
